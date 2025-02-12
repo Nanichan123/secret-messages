@@ -1,0 +1,203 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #ab71ad;
+    margin: 0;
+}
+
+.envelope {
+    position: relative;
+    width: 500px;
+    height: 300px;
+    background-color: #fd96d6;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    cursor: pointer;
+    box-shadow: 2px 2px 0 #ffffff, -2px -2px 0 #ffffff, 2px -2px 0 #ffffff, -2px 2px 0 #ffffff; 
+    border-radius: 3%;
+}
+
+.envelope h2 {
+    position: absolute;
+    top: 17%;
+    left: 35%;
+    transform: translate(-50%, -50%);
+    font-size: 30px;
+    color: #000000;
+}
+
+.envelope p1 {
+    position: absolute;
+    top: 65%;
+    left: 30%;
+    transform: translate(-50%, -50%);
+    font-size: 20px;
+    color: #000000;
+    
+}
+.envelope p2 {
+    position: absolute;
+    top: 75%;
+    left: 35%;
+    transform: translate(-50%, -50%);
+    font-size: 15px;
+    color: #000000;
+}  
+
+.envelope p3 {
+    position: absolute;
+    top: 90%;
+    left: 80%;
+    transform: translate(-50%, -50%);
+    font-size: 15px;
+    color: #000000;
+    
+}
+
+
+
+.flap {
+    position: absolute;
+    top: 3px;
+    left: 0;
+    width: 100%;
+    height: 130%;
+    clip-path: polygon(0% 0%, 100% 0%, 50% 50%);
+    background-color: #a33161;
+    transition: transform 0.5s ease-in-out;
+    transform-origin: top;
+    z-index: 3; /* Ensure the flap stays on top */
+    border-radius: 3%;
+}
+
+.bottom-flap {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    clip-path: polygon(0% 100%, 100% 100%, 50% 50%);
+    background-color: #ffffff;
+    z-index: 1;
+    border-radius: 3%;
+}
+
+.side-flaps {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    clip-path: polygon(0% 0%, 50% 50%, 0% 100%);
+    background-color: #f80355;
+    z-index: 2;
+    border-radius: 3%;
+}
+
+.side-flaps.right {
+    clip-path: polygon(100% 0%, 50% 50%, 100% 100%);
+}
+
+.letter {
+    position: absolute;
+    width: 80%;
+    height: 50%;
+    background-color: white;
+    padding: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    top: -20%;
+    left: 10%;
+    transition: transform 0.5s ease-in-out, z-index 0.5s;
+    transform: translateY(100%);
+    z-index: -1; /* Ensure the letter stays behind the side flaps initially */
+}
+
+.envelope.open .flap {
+    transform: rotateX(-180deg);
+}
+
+.envelope.open .letter {
+    transform: translateY(-1%);
+    z-index: 4; /* Bring the letter in front of the flaps when opened */
+}
+
+.hearts {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 10px;
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+}
+
+.envelope.open .hearts {
+    opacity: 1;
+}
+
+.heart {
+    position: relative;
+    width: 100px; /* Adjust the size as needed */
+    height: 90px; /* Adjust the size as needed */
+    animation: float 2s infinite ease-in-out;
+}
+
+.heart:nth-child(1) {
+    left: -20px;
+    animation-delay: 0s;
+}
+
+.heart:nth-child(2) {
+    left: 0;
+    animation-delay: 0.5s;
+}
+
+.heart:nth-child(3) {
+    left: 20px;
+    animation-delay: 1s;
+}
+
+@keyframes float {
+    0% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+    50% {
+        transform: translateY(-50px);
+        opacity: 0.5;
+    }
+    100% {
+        transform: translateY(-100px);
+        opacity: 0;
+    }
+}
+
+/* Heart shape */
+#heart {
+    position: relative;
+    width: 100px; /* Adjust the size as needed */
+    height: 90px; /* Adjust the size as needed */
+}
+
+#heart:before, #heart:after {
+    position: absolute;
+    content: "";
+    left: 50px;
+    top: 0;
+    width: 50px;
+    height: 80px;
+    background: red;
+    border-radius: 50px 50px 0 0;
+    transform: rotate(-45deg);
+    transform-origin: 0 100%;
+}
+
+#heart:after {
+    left: 0;
+    transform: rotate(45deg);
+    transform-origin: 100% 100%;
+}

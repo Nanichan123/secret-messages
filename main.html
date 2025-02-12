@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Secret Message</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="envelope" onclick="openEnvelope()">
+        <div class="flap"></div>
+        <div class="side-flaps"></div>
+        <div class="side-flaps right"></div>
+        <div class="bottom-flap"></div>
+        <div class="letter">
+            <h2>Happy Valentine's Day</h2>
+            <p1>Can will be my valentine?</p1>
+            <p2>Ikaw lang ang aking tinatangi mahal ko!</p2>
+            <p3>From: Ginoo</p3>
+       <div class="hearts">
+           <div class="heart" id="heart"></div>
+            <div class="heart" id="heart"></div>
+            <div class="heart" id="heart"></div>
+        </div>
+    <script>
+        function openEnvelope() {
+            document.querySelector('.envelope').classList.toggle('open');
+        }
+    </script>
+</body>
+</html>
